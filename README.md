@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Live Demo
 
-Visit [Fitness Tracker](https://ng-fitness-tracker-86393.web.app/)
+Visit [Fitness Tracker](https://ng-fitness-tracker.netlify.app/)
 
 ## Development server
 
