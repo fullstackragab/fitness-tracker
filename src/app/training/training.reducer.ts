@@ -20,8 +20,70 @@ export interface State extends fromRoot.State {
 }
 
 const initialState: TrainingState = {
-  availableTrainings: [],
-  finishedTrainings: [],
+  availableTrainings: ([] = [
+    { id: 'crunches', name: 'Crunches', duration: 30, calories: 8 },
+    { id: 'touch-toes', name: 'Touch Toes', duration: 180, calories: 15 },
+    { id: 'side-lunges', name: 'Side Lunges', duration: 120, calories: 18 },
+    { id: 'burpees', name: 'Burpees', duration: 60, calories: 8 },
+  ]),
+  finishedTrainings: [
+    {
+      id: 'crunches',
+      name: 'Crunches',
+      duration: 30,
+      calories: 8,
+      date: 1608926410497,
+      state: 'completed',
+    },
+    {
+      id: 'crunches',
+      name: 'Crunches',
+      duration: 30,
+      calories: 8,
+      date: 1608926450497,
+      state: 'completed',
+    },
+    {
+      id: 'touch-toes',
+      name: 'Touch Toes',
+      duration: 180,
+      calories: 15,
+      date: 1608936510497,
+      state: 'completed',
+    },
+    {
+      id: 'touch-toes',
+      name: 'Touch Toes',
+      duration: 18,
+      calories: 0.15,
+      date: 1608929510497,
+      state: 'cancelled',
+    },
+    {
+      id: 'side-lunges',
+      name: 'Side Lunges',
+      duration: 3.6,
+      calories: 0.54,
+      date: 1608926847312,
+      state: 'cancelled',
+    },
+    {
+      id: 'burpees',
+      name: 'Burpees',
+      duration: 6.6,
+      calories: 0.88,
+      date: 1608926917780,
+      state: 'cancelled',
+    },
+    {
+      id: 'crunches',
+      name: 'Crunches',
+      duration: 30,
+      calories: 8,
+      date: 1608926410497,
+      state: 'completed',
+    },
+  ],
   activeTraining: null,
 };
 
@@ -45,9 +107,12 @@ export function trainingReducer(state = initialState, action: TrainingActions) {
         },
       };
     case STOP_TRAINING:
+      const updatedFinishedTrainings = [...state.finishedTrainings];
+      updatedFinishedTrainings.push(action.payload);
       return {
         ...state,
         activeTraining: null,
+        finishedTrainings: updatedFinishedTrainings,
       };
     default:
       return state;

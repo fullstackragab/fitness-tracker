@@ -18,6 +18,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import * as fromRoot from './app.reducer';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import * as fromRoot from './app.reducer';
     FlexLayoutModule,
     StoreModule.forRoot(fromRoot.reducers),
     EffectsModule.forRoot([]),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [UIService],
   bootstrap: [AppComponent],

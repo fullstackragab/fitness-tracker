@@ -1,12 +1,13 @@
-<section>
+<section style="margin-top: 10px;">
   <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <span style="text-align: center;" class="mat-title">Sign Up</span>
     <mat-form-field>
-      <input type="email" matInput ngModel name="email" required email #emailInput="ngModel">
+      <input type="email" placeholder="Email" matInput ngModel name="email" required email #emailInput="ngModel">
       <mat-error *ngIf="emailInput.hasError('required')">This field must not be empty.</mat-error>
       <mat-error *ngIf="!emailInput.hasError('required')">Email is invalid.</mat-error>
     </mat-form-field>
     <mat-form-field hintLabel="Should be at least 6 characters long.">
-      <input type="password" matInput ngModel name="password" required minlength="6" #pwInput="ngModel">
+      <input type="password" placeholder="Password" matInput ngModel name="password" required minlength="6" #pwInput="ngModel">
       <mat-hint align="end">{{ pwInput.value?.length }} / 6</mat-hint>
       <mat-error>Has to be at least 6 characters long.</mat-error>
     </mat-form-field>
